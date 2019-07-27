@@ -19,19 +19,19 @@ export class ProbabilityScaleService {
     this.headersT = headers;
   }
   getProbabilityScale(id: number) {
-    return this.http.get('http://localhost:8080/probabilityScales/' + id,{headers: this.headersT})
+    return this.http.get('https://ilyesapprisk.herokuapp.com/probabilityScales/' + id,{headers: this.headersT})
       .pipe( map(resp => resp.json()));
   }
   getProbabilityScales() {
-    return this.http.get('http://localhost:8080/probabilityScales',{headers: this.headersT})
+    return this.http.get('https://ilyesapprisk.herokuapp.com/probabilityScales',{headers: this.headersT})
       .pipe( map(resp => resp.json()));
   }
   saveProbabilityScale(probabilityScale: ProbabilityScale) {
-    return this.http.post('http://localhost:8080/robabilityScales', probabilityScale,{headers: this.headersT})
+    return this.http.post('https://ilyesapprisk.herokuapp.com/robabilityScales', probabilityScale,{headers: this.headersT})
       .pipe( map(resp => resp.json()));
   }
   deleteProbabilityScale(id: number) {
-    return this.http.delete('http://localhost:8080/probabilityScales/' + id,{headers: this.headersT})
+    return this.http.delete('https://ilyesapprisk.herokuapp.com/probabilityScales/' + id,{headers: this.headersT})
       .pipe( map(resp => resp.json()));
   }
 }
