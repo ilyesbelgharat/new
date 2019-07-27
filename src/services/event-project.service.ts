@@ -50,13 +50,13 @@ export class EventProjectService {
 
     saveOne(idEvent:number,idProjet:number){
    // console.log('https://ilyesapprisk.herokuapp.com/eventProjet/'+idProjet+'/'+idEvent);
-      return this.http.post('http://localhost:8080/eventProjet/'+idProjet+'/'+idEvent,null, {headers: this.headersT});
+      return this.http.post('https://ilyesapprisk.herokuapp.com/eventProjet/'+idProjet+'/'+idEvent,null, {headers: this.headersT});
 
     }
 
   saveOne1(idsEvent:number[],idProjet:number){
     // console.log('https://ilyesapprisk.herokuapp.com/eventProjet/'+idProjet+'/'+idEvent);
-    return this.http.post('http://localhost:8080/eventProjetSave/'+idProjet,idsEvent, {headers: this.headersT});
+    return this.http.post('https://ilyesapprisk.herokuapp.com/eventProjetSave/'+idProjet,idsEvent, {headers: this.headersT});
 
   }
 
