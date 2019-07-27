@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {map} from 'rxjs/operators';
-import {ImpactScale} from '../Model/model.ImpactScale';
+import {ImpactScale} from '../model/model.impactScale';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthentificationService} from './authentification.service';
 
