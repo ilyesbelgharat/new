@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {map} from 'rxjs/operators';
-import {ProbabilityScale} from '../Model/model.ProbabilityScale';
+import {ProbabilityScale} from '../model/model.probabilityScale';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthentificationService} from './authentification.service';
 
