@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {map} from 'rxjs/operators';
-import {IntervalScale} from '../Model/model.IntervalScale';
+import {IntervalScale} from '../model/model.intervalScale';
 import {Router} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthentificationService} from './authentification.service';
