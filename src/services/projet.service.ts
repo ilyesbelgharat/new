@@ -141,7 +141,9 @@ listEventAccept(idProjet: number){
 
   }
 getFile2(path:string){
- return  this.http.get(path,{headers: this.headersT,  responseType: 'blob'})
+    let path1="https://ilyesapprisk.herokuapp.com" + path;
+
+ return  this.http.get(path1,{headers: this.headersT,  responseType: 'blob'})
 }
 
 listFiles(idProjet){
