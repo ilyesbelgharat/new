@@ -1,0 +1,82 @@
+
+<app-header
+  [navbarBrandFull]="{src: 'assets/img/brand/uqtr.jpg', width: 55, height: 25, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'UQTR'}"
+>
+  <ul class="nav navbar-nav d-md-down-none">
+    <li class="nav-item px-3">
+      <a class="nav-link" routerLink="/choix">Menu</a>
+    </li>
+
+    <!-- <li class="nav-item px-3">
+     <a class="nav-link" href="#">Settings</a>
+     </li>-->
+  </ul>
+  <ul class="nav navbar-nav ml-auto">
+
+    <li class="nav-item dropdown" dropdown placement="bottom right">
+      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+        <img   *ngIf="user.photo!=null" class="img-avatar" src={{user.photo.path}}/>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+
+
+        <div class="divider"></div>
+        <a class="dropdown-item"
+
+           mwlConfirmationPopover
+           popoverTitle="Delete Event"
+           popoverMessage="Are you sure !"
+           (click)="logOut()"
+
+
+        ><i class="fa fa-lock"></i> Logout</a>
+      </div>
+    </li>
+  </ul>
+</app-header>
+<div class="section" class=" auth auth-bg-1 theme-one">
+  <!-- container -->
+  <div class="container">
+<div class="limiter">
+    <div class="wrap-table100">
+<div class="table100 ver1 m-b-110">
+  <div class="table100-head">
+    <table>
+      <thead>
+      <tr class="row100 head">
+
+        <th class="cell100 column1">Title</th>
+        <th class="cell100 column3">Departement</th>
+        <th class="cell100 column4">Type</th>
+        <th class="cell100 column5">User Creation</th>
+        <th class="cell100 column2"></th>
+
+      </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="table100-body js-pscroll">
+    <table>
+      <tbody *ngIf="projets !=null">
+      <tr *ngFor="let p of projets" class="row100 body">
+
+
+        <td [routerLink]="[p.id]"  class="cell100 column1">{{p.nameProject}}</td>
+        <td [routerLink]="[p.id]"  class="cell100 column3">{{p.departement}}</td>
+        <td [routerLink]="[p.id]"  class="cell100 column4">{{p.type}}</td>
+        <td [routerLink]="[p.id]"   class="cell100 column5" *ngIf="p.userCreation!=null">{{p.userCreation.firstName}} {{p.userCreation.lastName}}</td>
+        <td class="cell100 column2"><button  type="button" class="btn btn-sm btn-pill btn-danger"
+                                             mwlConfirmationPopover
+                                             placement="left"        (confirm)="deleteProjet(p.id)">
+
+          <i class="glyphicon glyphicon-trash"></i></button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>

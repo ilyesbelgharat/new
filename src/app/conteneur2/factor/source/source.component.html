@@ -1,0 +1,69 @@
+<div>
+  <button (click)="onNew()" class="btn btn-success">
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</div>
+<p></p>
+<div *ngIf="mode==1">
+
+  <form #f="ngForm"  >
+    <div class="form-group">
+      <label class="control-label" > Code</label>
+      <input type="text" name="code" [(ngModel)]="source.code" class="form-control">
+      <label class="control-label" > description</label>
+      <input type="text" name="description" [(ngModel)]="source.description" class="form-control">
+    </div>
+    <button class="btn btn-success" (click)="saveSource()" type="submit">Save</button>
+  </form>
+</div>
+
+<p></p>
+<table  class="table table-responsive-sm table-hover table-outline mb-0" >
+  <thead class="thead-light">
+  <tr>
+
+    <th >
+      <div>
+      Code
+      </div>
+    </th>
+
+    <th >
+      <div>
+      Description
+      </div>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr  *ngFor="let u of sources" >
+
+    <td>
+      <div >
+        <h5> {{u.code}}</h5>
+
+      </div>
+    </td>
+    <td>
+      <div >
+        <h5> {{u.description}}</h5>
+
+      </div>
+    </td>
+
+    <td>
+      <div class="col-6 col-sm-4 col-md mb-3 mb-xl-0 text-center">
+        <button type="button" class="btn btn-sm btn-pill btn-danger"
+                mwlConfirmationPopover
+                popoverTitle="Delete Event"
+                popoverMessage="Are you sure !"
+                (confirm)="deleteSource(u.id)"
+
+        >DELETE</button>
+      </div>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+

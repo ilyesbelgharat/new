@@ -1,0 +1,118 @@
+<app-header
+  [navbarBrandFull]="{src: 'assets/img/brand/uqtr.jpg', width: 40, height: 30, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 20, height: 23, alt: 'UQTR'}"
+>
+  <ul class="nav navbar-nav d-md-down-none">
+    <li class="nav-item px-3">
+      <a class="nav-link" routerLink="/choix">Menu</a>
+    </li>
+
+
+    <!-- <li class="nav-item px-3">
+     <a class="nav-link" href="#">Settings</a>
+     </li>-->
+  </ul>
+
+
+
+  <ul class="nav navbar-nav ml-auto">
+
+    <li class="nav-item dropdown" dropdown placement="bottom right">
+      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+        <img *ngIf="user.photo!=null" class="img-avatar" src={{user.photo.path}}/>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+
+
+
+        <div class="divider"></div>
+
+        <a class="dropdown-item" (click)="logOut()"><i class="fa fa-lock"></i> Logout</a>
+      </div>
+    </li>
+
+  </ul>
+
+</app-header>
+
+<div class="app-body">
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Dashboard</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+
+
+      <li class="active">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Identification</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a routerLink="/projets/{{idProjet}}/events/{{idProjet}}">Identification of risks</a>
+          </li>
+          <li>
+            <a routerLink="/projets/{{idProjet}}/eventsProjet/{{idProjet}}">Identification of causal Links</a>
+          </li>
+          <li>
+            <a routerLink="/projets/{{idProjet}}/eventsDetails/{{idProjet}}">Details Risks</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="active">
+        <a href="#homeSubmenu00" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Scales</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu00">
+          <li>
+            <a routerLink="/projets/{{idProjet}}/echelleProba/{{idProjet}}">Probability</a>
+          </li>
+          <li>
+            <a routerLink="/projets/{{idProjet}}/echelleImpact/{{idProjet}}">Impact Scale</a>
+          </li>
+
+        </ul>
+      </li>
+      <li>
+        <a routerLink="/projets/{{idProjet}}/InputEstimation/{{idProjet}}">Estimation Of Impact</a>
+      </li>
+
+      <li >
+
+        <a routerLink="/projets/{{idProjet}}/InputAHP/{{idProjet}}">AHP Method</a>
+
+      </li>
+      <li >
+        <a routerLink="/projets/{{idProjet}}/concentration/{{idProjet}}">Concentration & Level of Risk</a>
+      </li>
+      <li >
+        <a routerLink="/projets/{{idProjet}}/Result/{{idProjet}}">Acceptabilité</a>
+      </li>
+
+
+
+
+      <li>
+        <a routerLink="/projets/{{idProjet}}/Historique/{{idProjet}}">Historic</a>
+      </li>
+    </ul>
+
+
+
+
+
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content" class=" auth auth-bg-1 theme-one">
+
+    <div class="card-header">
+      <strong><h1 class="text-center">Title : {{proj.nameProject}}</h1> </strong>
+      <strong class="-align-right"><h6 class="-align-right text-center" *ngIf="proj.userCreation">created by :{{proj.userCreation.username}}</h6> </strong>
+
+    </div>
+    <router-outlet></router-outlet>
+
+  </div>
+</div>
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->

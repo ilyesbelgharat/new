@@ -1,0 +1,144 @@
+<div>
+  <button (click)="onNew()" class="btn btn-success">
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</div>
+<p></p>
+<div *ngIf="mode==1">
+
+  <form #f="ngForm"  >
+    <div class="form-group">
+      <label class="control-label blanc" > Code</label>
+      <input type="text" name="code" [(ngModel)]="factor.code" class="form-control">
+      <span style="color:rgb(255,0,0);" *ngIf=" modeAjout==1 && !factor.code" class="help-block">Code is required</span>
+      <span style="color:rgb(255,0,0);" *ngIf=" modeAjout==1 &&  factor.code && factor.description && test1==1" class="help-block">Code exist</span>
+
+      <label class="control-label blanc" > description</label>
+      <input type="text" name="description" [(ngModel)]="factor.description" class="form-control">
+      <span style="color:rgb(255,0,0);" *ngIf=" modeAjout==1 && ! factor.description" class="help-block">Description is required</span>
+
+    </div>
+    <button class="btn btn-success" (click)="saveFactor()" type="submit">Save</button>
+  </form>
+</div>
+
+<p></p>
+
+<table  class="table table-responsive-sm table-hover table-outline mb-0" >
+  <thead class="thead-light">
+  <tr>
+    <th></th>
+    <th class="text-center">Code</th>
+    <th class="text-center">Description</th>
+    <th></th>
+
+
+  </tr>
+  </thead>
+  <tbody *ngFor="let u of factors">
+  <tr  >
+    <td> <button  (click)="listSources(u.id)" class="btn btn-google-plus">
+  <span class="glyphicon glyphicon-plus"></span>
+   </button>
+  </td>
+    <td class="text-center">
+
+        <h5 class="font-weight-bold blanc" *ngIf="id3!=u.id"> {{u.code}}</h5>
+      <input type="text" name="code" *ngIf="id3==u.id"  [(ngModel)]="factorNew.code" class="form-control">
+
+    </td>
+    <td class="text-center">
+        <h5 class="font-weight-bold blanc" *ngIf="id3!=u.id"> {{u.description}}</h5>
+      <input type="text" name="description" *ngIf="id3==u.id"  [(ngModel)]="factorNew.description" class="form-control" >
+
+    </td>
+
+    <td>
+      <div class="col-6 col-sm-4 col-md mb-3 mb-xl-0 text-center">
+        <button *ngIf="id3!=u.id" type="button" class="btn btn-sm btn-pill btn-danger" (click)="selectFactor(u.id)">Update</button>
+        <button *ngIf="id3==u.id" type="button" class="btn btn-sm btn-pill btn-danger" (click)="updateFactor(u.id)" >Submit</button>
+
+      </div>
+      <div class="col-6 col-sm-4 col-md mb-3 mb-xl-0 text-center">
+        <button type="button" class="btn btn-sm btn-pill btn-danger" *ngIf="id3!=u.id"
+                mwlConfirmationPopover
+                popoverTitle="Delete Event"
+                popoverMessage="Are you sure !"
+                (confirm)="deleteFactor(u.id)"
+        >DELETE</button>
+      </div>
+    </td>
+    <p></p>
+
+  </tr>
+
+  <tr *ngIf="sources && u.id==id &&  list==1">
+      <td></td>
+    <td></td>
+
+    <td>
+      <div>
+        <button (click)="onNewSource(u.id)" class="btn btn-success">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </div>
+
+      <p></p>
+      <div *ngIf="modeSource==1 && u.id==id1">
+
+        <form #f="ngForm"  >
+          <div class="form-group">
+            <label class="control-label" > Code</label>
+            <input type="text" name="code" [(ngModel)]="source.code" >
+            <span style="color:rgb(255,0,0);" *ngIf=" modeAjout2==1 && !source.code" class="help-block">Code is required</span>
+            <span style="color:rgb(255,0,0);" *ngIf=" modeAjout2==1 &&  source.code && source.description && test2==1" class="help-block">Code exist</span>
+
+            <label class="control-label" > description</label>
+            <input  type="text" name="description" [(ngModel)]="source.description" >
+            <span style="color:rgb(255,0,0);" *ngIf=" modeAjout2==1 && !source.description" class="help-block">Description is required</span>
+
+          </div>
+          <button class="btn btn-success" (click)="saveSource(u.id)" type="submit">Save</button>
+        </form>
+      </div>
+      <table  *ngIf="sources && u.id==id" class="table table-sm">
+              <thead>
+              <tr >
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let s of sources" >
+                <td  >  <h5 *ngIf="id2!=s.id">{{s.code}}</h5>
+                <input type="text" name="code" *ngIf="id2==s.id"  [(ngModel)]="sourceNew.code" class="form-control" >
+                </td>
+                <td  > <h5 *ngIf="id2!=s.id">{{s.description}}</h5>
+                  <input type="text" name="description" *ngIf="id2==s.id"  [(ngModel)]="sourceNew.description" class="form-control" >
+
+                <td>
+                <div class="col-6 col-sm-4 col-md mb-3 mb-xl-0 text-center">
+                  <button *ngIf="id2!=s.id" type="button" class="btn btn-sm btn-pill btn-danger" (click)="selectSource(s.id)">Update</button>
+                  <button *ngIf="id2==s.id" type="button" class="btn btn-sm btn-pill btn-danger" (click)="updateSource(s.id,u.id)" >Submit</button>
+
+                </div>
+                <button type="button" class="btn btn-sm btn-pill btn-danger" *ngIf="id2!=s.id"
+
+                        mwlConfirmationPopover
+                        popoverTitle="Delete Event"
+                        popoverMessage="Are you sure !"
+                        (confirm)="deleteSource(s.id,u.id)"
+
+                >DELETE</button>
+              </td>
+
+              </tr>
+
+              </tbody>
+            </table>
+          </td>
+  </tr>
+
+  </tbody>
+</table>
+

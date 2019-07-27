@@ -1,0 +1,111 @@
+<p></p>
+<div >
+  <div >
+    <div class="card text-white bg-primary">
+      <div class="card-header">
+        <h3> Impact Scale</h3>
+      </div>
+      <div  class="card">
+
+        <div class="card-body">
+          <table class="table table-bordered">
+
+            <tbody>
+            <tr >
+              <th>Minor Impact</th>
+              <td></td>
+             <div *ngIf="modeMinor==0">
+              <td *ngFor="let i of projet.impactScale.minorImpact" >
+
+
+                <h4 *ngIf="modeMinor==0">{{i}}</h4>
+                <input  type="text" name="min"   class="form-control" >
+
+
+              </td>
+             </div>
+              <div *ngIf="modeMinor==1">
+
+                <td>
+                  <input type="text" name="min"   [(ngModel)]="min" class="form-control" >
+                </td>
+                <td>
+                  <input type="text" name="max"   [(ngModel)]="max" class="form-control" >
+                </td>
+              </div>
+              <td>
+                <button type="button" *ngIf="modeMinor==1" (click)="saveMinor()" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> </button>
+                <button type="button"  *ngIf="modeMinor==0" (click)="selectMinor()" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-edit"></span> </button>
+              </td>
+
+            </tr>
+
+            <tr >
+              <th>Moderate Impact</th>
+              <td></td>
+              <div *ngIf="modeModerate==0">
+              <td *ngFor="let i of projet.impactScale.moderateImpact" >
+
+
+                <h4 *ngIf="modeModerate==0">{{i}}</h4>
+
+                <input type="text" name="min"    class="form-control" >
+
+              </td>
+              </div>
+              <div *ngIf="modeModerate==1">
+
+                <td>
+                  <input type="text" name="min"   [(ngModel)]="min" class="form-control" >
+                </td>
+                <td>
+                  <input type="text" name="max"   [(ngModel)]="max" class="form-control" >
+                </td>
+              </div>
+              <td>
+                <button type="button" *ngIf="modeModerate==1" (click)="saveModerate()" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> </button>
+                <button type="button"  *ngIf="modeModerate==0" (click)="selectModerate()" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-edit"></span> </button>
+              </td>
+            </tr>
+            <tr >
+              <th>Strong Impact</th>
+              <td></td>
+              <div *ngIf="modeStrong==0">
+
+              <td  *ngFor="let i of projet.impactScale.strongImpact" >
+
+
+                <h4 *ngIf="modeStrong==0">{{i}}</h4>
+
+                <input   type="text" name="min"   class="form-control" >
+
+              </td>
+              </div>
+              <div *ngIf="modeStrong==1">
+
+                <td>
+                  <input type="text" name="min"   [(ngModel)]="min" class="form-control" >
+                </td>
+                <td>
+                  <input type="text" name="max"   [(ngModel)]="max" class="form-control" >
+                </td>
+              </div>
+              <td>
+                <button type="button" *ngIf="modeStrong==1" (click)="saveStrong()" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> </button>
+                <button type="button"  *ngIf="modeStrong==0" (click)="selectStrong()" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-edit"></span> </button>
+              </td>
+            </tr>
+
+
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+

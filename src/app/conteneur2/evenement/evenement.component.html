@@ -1,0 +1,74 @@
+<div>
+  <button (click)="onNew()" class="btn btn-success">
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</div>
+<p></p>
+<div *ngIf="mode==1">
+
+  <form #f="ngForm"  >
+    <div class="form-group">
+      <label class="control-label" > <h5>Code</h5></label>
+      <input type="text" name="code" [(ngModel)]="event.code" class="form-control">
+      <span style="color:rgb(255,0,0);" *ngIf=" modeAjout==1 && ! event.code" class="help-block">Code is required</span>
+      <span style="color:rgb(255,0,0);" *ngIf=" modeAjout==1 &&  event.code && event.description && test1==1" class="help-block">Code exist</span>
+
+      <label class="control-label" > <h5>description</h5></label>
+      <input type="text" name="description" [(ngModel)]="event.description" class="form-control">
+      <span style="color:rgb(255,0,0);" *ngIf=" modeAjout==1 && ! event.description" class="help-block">Description is required</span>
+
+    </div>
+    <button class="btn btn-success" (click)="saveEvent()" type="submit">Save</button>
+  </form>
+</div>
+
+<p></p>
+<table   class="table table-responsive-sm table-hover table-outline mb-0"  >
+  <thead class="thead-light">
+  <tr>
+
+    <th class="text-center">Code</th>
+    <th class="text-center">Description</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let u of events" class="font-weight-bold">
+
+    <td class="text-center">
+      <div >
+        <h4 class="font-weight-bold" *ngIf="id!=u.id"> {{u.code}}</h4>
+        <input type="text" name="code" *ngIf="id==u.id"  [(ngModel)]="eventNew.code" class="form-control">
+
+
+      </div>
+    </td>
+    <td class="text-center">
+      <div >
+        <h5 class="font-weight-bold" *ngIf="id!=u.id"> {{u.description}}</h5>
+        <input type="text" name="description" *ngIf="id==u.id"  [(ngModel)]="eventNew.description" class="form-control" >
+
+      </div>
+    </td>
+
+    <td>
+      <div class="col-6 col-sm-4 col-md mb-3 mb-xl-0 text-center">
+        <button *ngIf="id!=u.id" type="button" class="btn btn-sm btn-pill btn-danger" (click)="select(u.id)">Update</button>
+        <button *ngIf="id==u.id" type="button" class="btn btn-sm btn-pill btn-danger" (click)="updateEvent(u.id)" >Submit</button>
+
+      </div>
+      <div class="col-6 col-sm-4 col-md mb-3 mb-xl-0 text-center">
+        <button
+          type="button" class="btn btn-sm btn-pill btn-danger" *ngIf="id!=u.id"
+          mwlConfirmationPopover
+          popoverTitle="Delete Event"
+          popoverMessage="Are you sure !"
+          (confirm)="deleteEvent(u.id)"
+         >DELETE</button>
+      </div>
+    </td>
+  </tr>
+<tr></tr>
+  </tbody>
+</table>
+

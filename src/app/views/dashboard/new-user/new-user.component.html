@@ -1,0 +1,82 @@
+<div class="animated fadeIn dimension">
+  <div class="card">
+    <div class="card-header">
+      <strong>Add User</strong>
+    </div>
+    <div class="card-body ">
+      <form action="" method="post" #f="ngForm"  enctype="multipart/form-data" class="form-horizontal">
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="firstName" >First Name</label>
+          <div class="col-md-9">
+            <input type="text" id="firstName" name="firstName"  [(ngModel)]="user.firstName" class="form-control" placeholder="Your First Name">
+            <span style="color:rgb(255,0,0);" *ngIf=" mode==1 && ! user.firstName" class="help-block">First Name is required</span>
+
+          </div>
+          <label class="col-md-3 col-form-label" for="lastName">Last Name</label>
+          <div class="col-md-9">
+
+            <input type="text" id="lastName" name="lastName"  [(ngModel)]="user.lastName" class="form-control" placeholder="Your Last Name">
+            <span style="color:rgb(255,0,0);" *ngIf="  mode==1 && ! user.lastName" class="help-block">Last Name is required</span>
+
+          </div>
+          <label class="col-md-3 col-form-label" for="username">Username</label>
+          <div class="col-md-9">
+
+            <input type="text" id="username" name="username" [(ngModel)]="user.username" class="form-control" placeholder="username">
+            <span style="color:rgb(255,0,0);" *ngIf="  mode==1 && ! user.username" class="help-block">Username is required</span>
+            <span style="color:rgb(255,0,0);" *ngIf="  mode==1 && modeUsername==1" class="help-block">Username Exist</span>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="email">Email </label>
+          <div class="col-md-9">
+
+            <input type="email" id="email" name="email" [(ngModel)]="user.email" class="form-control" placeholder="Enter Email" autocomplete="email">
+            <span style="color:rgb(255,0,0);" *ngIf=" mode==1 &&  ! user.email" class="help-block">E-mail is required</span>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="poste">Position</label>
+          <div class="col-md-9">
+            <input type="text" id="poste" name="poste" [(ngModel)]="user.poste" class="form-control" placeholder="Enter Poste" >
+            <span style="color:rgb(255,0,0);" *ngIf=" mode==1 &&  ! user.poste" class="help-block">Position is required</span>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="password" >Password</label>
+          <div class="col-md-9">
+            <input type="password" id="password" name="password" [(ngModel)]="user.password" class="form-control" placeholder="Password" autocomplete="current-password">
+            <span style="color:rgb(255,0,0);" *ngIf=" mode==1 &&  ! user.password" class="help-block">Password is required</span>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="birthDate">Birth Date</label>
+          <div class="col-md-9">
+            <input class="form-control" id="birthDate" [(ngModel)]="user.birthDate" type="date" name="birthDate" placeholder="date">
+            <span style="color:rgb(255,0,0);" *ngIf=" mode==1 &&  ! user.birthDate" class="help-block">Birth date is required</span>
+
+          </div>
+        </div>
+        <form name="fileinfo">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="file">Photo User</label>
+            <div class="col-md-9">
+              <input type="file" id="file" name="file">
+              <span style="color:rgb(255,0,0);" *ngIf=" mode==1 &&  modeFile==1 " class="help-block">File is required</span>
+
+            </div>
+          </div>
+        </form>
+
+      </form>
+    </div>
+    <div class="card-footer">
+      <button type="submit" (click)="save()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
+    </div>
+  </div>
+</div>

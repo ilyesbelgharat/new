@@ -1,0 +1,86 @@
+<p></p>
+<div >
+  <div >
+    <div class="card text-white bg-primary">
+      <div class="card-header">
+        <h3>Table of convention of risk concentration to probability of occurrence </h3>
+      </div>
+      <div  class="card">
+
+        <div class="card-body">
+          <table *ngIf="projet.probabilityScale" class="table table-bordered">
+            <thead>
+            <tr>
+              <th  colspan="2">Relative concentration of risk</th>
+              <th>Probability of occurrence</th>
+              <th></th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr *ngFor="let pi of projet.probabilityScale.intervalScales">
+              <td> <h5 *ngIf="idInterval!=pi.id">{{pi.min}}</h5>
+                 <input type="text" name="min" *ngIf="pi.id==idInterval"  [(ngModel)]="intervalNew.min" class="form-control" >
+
+
+               </td>
+              <td>
+                <h5 *ngIf="idInterval!=pi.id">{{pi.max}}</h5>
+                <input type="text" name="max" *ngIf="pi.id==idInterval"  [(ngModel)]="intervalNew.max" class="form-control" >
+
+              </td>
+              <td > <h5 *ngIf="idInterval!=pi.id"> {{pi.valeur}}</h5>
+                <input type="text" name="valeur" *ngIf="pi.id==idInterval"  [(ngModel)]="intervalNew.valeur" class="form-control" >
+
+              </td>
+
+              <td>
+
+                <button type="button" *ngIf="modeUpdate==1 && pi.id==idInterval" (click)="saveUpdate(pi.id)" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> </button>
+                <button type="button" *ngIf=" pi.id!=idInterval" (click)="selectUpdate(pi.id)" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-edit"></span> </button>
+                <button type="button" *ngIf="pi.id!=idInterval" (click)="delete(pi.id)"   class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-remove"></span></button>
+
+            </tr>
+
+
+            </tbody>
+          </table>
+
+
+          <button (click)="selectSave()" type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-download-alt"></span> Ajouter Interval</button>
+         <p></p>
+          <div *ngIf="modeEchelle==1"  >
+            <div class="card">
+
+              <div class="card-body">
+                <form *ngIf="modeEchelle==1" action="" method="post" class="form-horizontal">
+                  <div class="form-group row">
+                    <div class="col-4">
+                      <input type="text" class="form-control" name="min" placeholder="Min" [(ngModel)]="interval.min">
+                    </div>
+                    <div class="col-4">
+                      <input type="text" class="form-control" placeholder="Max" name="max" [(ngModel)]="interval.max">
+                    </div>
+                    <div class="col-4">
+                      <input type="text" class="form-control" placeholder="Value" name="valeur"  [(ngModel)]="interval.valeur">
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+              <div class="card-footer">
+
+                <button type="button" *ngIf="modeEchelle==1" class="btn btn-sm btn-success" (click)="saveEchelle()">Save</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+

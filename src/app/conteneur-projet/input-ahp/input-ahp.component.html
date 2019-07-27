@@ -1,0 +1,89 @@
+
+    <div class="card-header">
+      AHP WEIGHT
+    </div>
+    <div >
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th><button type="button" class="btn btn-info">Info</button>
+          </th>
+          <th><p>Code</p></th>
+          <th><p>Description</p></th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let ev of projet.eventProjets">
+        <tr >
+          <td> <span  class="badge badge-success" (click)="select(ev.id)">Ahp</span> </td>
+          <td>
+            <p><code class="highlighter-rouge">{{ev.undesirableEvent.code}}</code></p>
+          </td>
+          <td>
+            <p><code class="highlighter-rouge">{{ev.undesirableEvent.description}}</code></p>
+          </td>
+
+        </tr>
+          <tr *ngIf="idEvent==ev.id">
+            <td></td>
+            <td></td>
+
+            <div  *ngIf="idEvent==ev.id" >
+
+                  <div class="card-header">
+                     Matrice {{ev.undesirableEvent.code}}
+
+                  </div>
+
+                    <table  class="table table-bordered">
+                      <thead>
+
+
+                      <button type="button"   (click)="saveUpdate(ev.id)"  class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> </button>
+                      <span style="color:rgb(255,0,0);" *ngIf=" (tester()==false)  " class="help-block text-left">Nbre de 0 a 9</span>
+
+                      <tr>
+                        <th></th>
+                        <th *ngFor="let f of factors">{{f.code}}</th>
+                        <th>Weight</th>
+                      </tr>
+
+                      <tr *ngFor="let f of factors;let i=index">
+                        <th>{{f.code}}</th>
+                        <td *ngFor="let f of factors; let j=index">
+                          <div   class="col-xs-1">
+
+
+
+                            <input *ngIf="i<j && (compArrayOutput[i*factors.length+j]<=9&& 0<=compArrayOutput[i*factors.length+j])" class="form-control" [(ngModel)]="compArrayOutput[i*factors.length+j]" type="number" >
+                            <input style="color:rgb(255,0,0);"  *ngIf="i<j && (9<compArrayOutput[i*factors.length+j]||compArrayOutput[i*factors.length+j]<0)  "class="form-control" [(ngModel)]="compArrayOutput[i*factors.length+j]" type="number" >
+
+                            <input  *ngIf="i>j" class="form-control" [(ngModel)]="1/compArrayOutput[j*factors.length+i]"  type="text" disabled>
+                            <input  *ngIf="i==j" class="form-control"  type="text" disabled value="1" >
+
+
+
+
+                          </div>
+
+
+                        </td>
+
+                        <td *ngIf="ev.weights != null">{{ev.weights[i]| number  :'1.1-2'}}</td>
+
+                      </tr>
+
+                      </thead>
+
+                    </table>
+
+          </div>
+              <!--/.col-->
+
+              <!--/.col-->
+
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+

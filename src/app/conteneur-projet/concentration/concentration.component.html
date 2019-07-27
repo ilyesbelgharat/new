@@ -1,0 +1,70 @@
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Calculation of the risk factor concentration for each undesirable event
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+          <tr>
+            <th>Undesirable event</th>
+            <th>Linked risk factor category</th>
+            <th>Factors of category(Xi)</th>
+            <th>Weighting(Yi)</th>
+            <th>Xi*Yi</th>
+            <th>Fraction of total Eq</th>
+            <th>Probability of Occurence</th>
+            <th>Max Impact</th>
+            <th>Level of Risk</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let ev of projet.eventProjets">
+
+          <tr >
+            <td [attr.rowspan]="ev.factorProjets.length+3" >{{ev.undesirableEvent.code}}</td>
+
+          </tr>
+
+          <tr *ngFor="let f of ev.factorProjets">
+            <td>{{f.factor.code}}</td>
+            <td>{{f.sourceDangers.length}}</td>
+            <td >{{projet.overAllSignificanceRank[f.factor.id]}}</td>
+            <td >{{f.xy}}</td>
+            <td >--</td>
+            <td >--</td>
+            <td >--</td>
+            <td >--</td>
+
+          </tr>
+
+          <tr >
+            <td></td>
+            <td></td>
+
+            <td class="p-3 mb-2 bg-info text-white">Sub-Total {{ev.undesirableEvent.code}}</td>
+            <td class="p-3 mb-2 bg-info text-white">{{ev.xy}}</td>
+            <td class="p-3 mb-2 bg-info text-white">{{ev.fractionTotal | number  :'1.1-2'}}</td>
+              <td class="p-3 mb-2 bg-danger text-white"> {{ev.probabilityOccurence}} </td>
+            <td class="p-3 mb-2 bg-danger text-white"> {{ev.maxImpact}} </td>
+            <td class="p-3 mb-2 bg-danger text-white"> {{ev.levelRisk | number :'1.1-2'}}</td>
+
+          </tr>
+
+          </tbody>
+          <tr >
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="p-3 mb-2 bg-success text-white">Total</td>
+            <td class="p-3 mb-2 bg-success text-white">{{projet.xy}}</td>
+            <td class="p-3 mb-2 bg-success text-white">100 %</td>
+
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+</div>

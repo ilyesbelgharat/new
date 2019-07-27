@@ -1,0 +1,93 @@
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> List Events
+      </div>
+      <div class="card-body">
+        <table class="table table-sm">
+          <thead>
+          <tr>
+            <th></th>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Impacts</th>
+            <th>Factors</th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let e of events">
+            <td>
+                <button class="btn btn-danger"
+
+                        mwlConfirmationPopover
+                        popoverTitle="Delete Event"
+                        popoverMessage="Are you sure !"
+                        (confirm)="delete(e.id)">
+                  <span class="glyphicon glyphicon-remove">
+
+                  </span>
+                </button>
+            </td>
+            <td>{{e.undesirableEvent.code}}</td>
+            <td>{{e.undesirableEvent.description}}</td>
+            <td>
+              <label> <span class="badge badge-success" (click)="select(e.id)">List</span></label>
+              <div *ngIf="modeImpact==1 && e.id==idEventt" >
+                <div class="card-footer">
+                    <button   (click)="save()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Save</button>
+                  </div>
+
+
+              <div class="form-group row" *ngFor="let i of impacts">
+                <input  type="checkbox" id="{{i.id}}"
+                       (change)="changer(i.id)">
+                <label for="{{i.id}}"><h5>{{i.code}}:{{i.description}}</h5></label>
+              </div>
+
+
+
+
+              </div>
+            </td>
+            <td>
+
+
+              <label>  <span class="badge badge-success" (click)="selectFactor(e.id)">List</span>  </label>
+                     <div *ngIf="modeFactor==1 && e.id==idEventt" >
+                       <div class="card-footer">
+                           <button   (click)="saveFactors1(e.id)" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Save</button>
+                         </div>
+
+
+                     <div class="form-group row" *ngFor="let ind of factors">
+
+                       <input type="checkbox" id="{{ind.id}}" name="scales"
+                              (change)="changerFactor(ind.id)">
+                       <label for="{{ind.id}}"><h5>{{ind.code}}:{{ind.description}}</h5></label>
+                       <p></p>
+
+                                 <div class="ended" *ngIf=" modeSource==1 && e.id==idEventt && idFactor==ind.id" >
+
+
+
+
+
+                                 <div  class="row dimension" *ngFor="let j of sources">
+                                   <input type="checkbox" id="{{j.id}}" name="scales"
+                                          (change)="changerSource(j.id)">
+                                   <label for="{{j.id}}"><h5>{{j.code}}:{{j.description}}</h5></label>
+                                 </div>
+
+                                 </div>
+                     </div>
+                     </div>
+
+          </td>
+          </tr>
+
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>

@@ -1,0 +1,42 @@
+<p></p>
+<div >
+  <div >
+    <div class="card text-white bg-primary">
+      <div class="card-header">
+        <h3> Estimation of impact of undesirable events on the project </h3>
+      </div>
+      <div  class="card">
+
+        <div class="card-body">
+          <table class="table table-bordered">
+<tr>
+  <th></th>
+  <th *ngFor="let i of impacts">Impact : {{i.code}}</th>
+</tr>
+            <tbody>
+
+            <tr *ngFor="let e of projet.eventProjets ; let i = index">
+              <th>{{e.undesirableEvent.code}}</th>
+              <td *ngFor="let i of impacts; let j = index">
+                <span ></span>
+
+                <h4  *ngIf="mode==0" >{{e.estimationImpact[i.id]}}</h4>
+
+                <input  *ngIf="mode==1"   type="number"   [(ngModel)]="e.estimationImpact[i.id]"   class="form-control" >
+
+              </td>
+
+            </tr>
+            </tbody>
+          </table>
+          <button type="button"  *ngIf="mode==1" (click)="saveUpdate()"  class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> </button>
+          <button type="button" *ngIf="mode==0"  (click)="selectUpdate()" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-edit"></span> </button>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

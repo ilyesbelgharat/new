@@ -1,0 +1,71 @@
+<div class="card">
+  <div class="card-header">
+    <i class="fa fa-align-justify"></i> List Events
+  </div>
+  <div class="card-body">
+    <table class="table table-sm">
+      <thead>
+      <tr>
+        <th>Code</th>
+        <th>Description</th>
+        <th>Impacts</th>
+        <th>Factors</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let e of projet.eventProjets">
+
+        <td>{{e.undesirableEvent.code}}</td>
+        <td>{{e.undesirableEvent.description}}</td>
+        <td>
+          <label>   <span class="badge badge-success" (click)="select(e.id)">List</span></label>
+          <div *ngIf="modeImpact==1 && e.id==idEventt" >
+
+
+            <div *ngFor="let i of e.impacts">
+              <label><h5>{{i.code}}:{{i.description}}</h5></label>
+            </div>
+
+
+
+
+          </div>
+        </td>
+        <td>
+
+
+          <label> <span class="badge badge-success" (click)="selectFactor(e.id)">List</span></label>
+          <div *ngIf="modeFactor==1 && e.id==idEventt" >
+
+
+
+
+            <div *ngFor="let ind of e.factorProjets">
+
+              <label ><h5>{{ind.factor.code}}:{{ind.factor.description}}</h5></label>
+
+
+              <div class="ended"  >
+
+
+
+
+
+                <div  class="ended" *ngFor="let j of ind.sourceDangers">
+
+                  <label ><h5>{{j.code}}:{{j.description}}</h5></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </td>
+      </tr>
+
+
+      </tbody>
+    </table>
+
+  </div>
+</div>

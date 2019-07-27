@@ -1,0 +1,142 @@
+
+<app-header
+  [navbarBrandFull]="{src: 'assets/img/brand/uqtr.jpg', width: 55, height: 25, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'UQTR'}"
+>
+
+
+  <ul class="nav navbar-nav ml-auto">
+
+    <li class="nav-item dropdown" dropdown placement="bottom right">
+      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+        <img   *ngIf="user.photo!=null" class="img-avatar" src={{user.photo.path}}/>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+
+
+        <div class="divider"></div>
+        <a class="dropdown-item"
+
+           mwlConfirmationPopover
+           popoverTitle="Delete Event"
+           popoverMessage="Are you sure !"
+           (click)="logOut()"
+
+
+        ><i class="fa fa-lock"></i> Logout</a>
+      </div>
+    </li >
+
+  </ul>
+</app-header>
+
+
+<div class="auth">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+
+
+
+      <!-- product -->
+      <div class="col-md-3 col-xs-6"  *ngIf="isAdmin()" routerLink="/dashboard/users">
+
+        <div class="product">
+          <div class="product-img">
+            <img src="../assets/img/logo-utilisateur-png-2.png" alt="">
+          </div>
+
+          <div class="product-body">
+            <p class="product-category">Users</p>
+            <h3 class="product-name"><a >User Management</a></h3>
+            <div class="product-rating">
+            </div>
+            <div class="product-btns">
+
+            </div>
+          </div>
+          <div class="add-to-cart">
+            <button class="add-to-cart-btn"> Go</button>
+          </div>
+        </div>
+      </div>
+      <!-- /product -->
+
+      <!-- product -->
+
+      <div routerLink="/conteneur2" class="col-md-3 col-xs-6">
+        <div class="product">
+          <div class="product-img">
+            <img src="../assets/img/add-database-xxl.png" alt="">
+
+          </div>
+          <div class="product-body">
+            <p class="product-category">DB</p>
+            <h3 class="product-name"><a >BD Management</a></h3>
+            <div class="product-rating">
+
+            </div>
+            <div class="product-btns">
+
+            </div>
+          </div>
+          <div class="add-to-cart">
+            <button class="add-to-cart-btn"> Go</button>
+          </div>
+        </div>
+      </div>
+      <!-- /product -->
+
+      <div class="clearfix visible-sm visible-xs"></div>
+
+      <!-- product -->
+      <div routerLink="/newProject" class="col-md-3 col-xs-6">
+        <div class="product">
+          <div class="product-img" >
+            <img  src="../assets/img/240_F_81814683_dU9z5alnsQhaHDdkvJ29tuowsN2k2ZKW.jpg" alt="">
+          </div>
+          <div class="product-body">
+            <p class="product-category">Projet</p>
+            <h3 class="product-name"><a >New Project</a></h3>
+            <div class="product-rating">
+
+            </div>
+            <div class="product-btns">
+
+            </div>
+          </div>
+          <div class="add-to-cart">
+            <button class="add-to-cart-btn">> Go</button>
+          </div>
+        </div>
+      </div>
+      <!-- /product -->
+
+      <!-- product -->
+      <div routerLink="/projets" class="col-md-3 col-xs-6">
+        <div class="product">
+          <div class="product-img">
+            <img src="../assets/img/projects-4-152114.png" width="193" height="130" alt="">
+          </div>
+          <div class="product-body">
+            <p class="product-category">Projects</p>
+            <h3 class="product-name"><a >Recent projects</a></h3>
+            <div class="product-rating">
+            </div>
+            <div class="product-btns">
+            </div>
+          </div>
+          <div class="add-to-cart">
+            <button class="add-to-cart-btn"> Go</button>
+          </div>
+        </div>
+      </div>
+      <!-- /product -->
+
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /Section -->

@@ -1,0 +1,92 @@
+
+<app-header
+  [navbarBrandFull]="{src: 'assets/img/brand/uqtr.jpg', width: 55, height: 25, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'UQTR'}"
+>
+
+
+  <ul class="nav navbar-nav ml-auto">
+
+    <li class="nav-item dropdown" dropdown placement="bottom right">
+      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+        <img   *ngIf="user.photo!=null" class="img-avatar" src={{user.photo.path}}/>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+
+
+        <div class="divider"></div>
+        <a class="dropdown-item"
+
+           mwlConfirmationPopover
+           popoverTitle="Delete Event"
+           popoverMessage="Are you sure !"
+           (click)="logOut()"
+
+
+        ><i class="fa fa-lock"></i> Logout</a>
+      </div>
+    </li>
+  </ul>
+</app-header>
+
+
+<div class="dimension text-center auth auth-bg-1 theme-one">
+  <main class="main">
+
+    <div class="animated fadeIn">
+      <div class="card">
+        <div class="card-header">
+          <strong>New Projet</strong>
+        </div>
+        <div class="card-body">
+          <form action="" method="post"   enctype="multipart/form-data" class="form-horizontal">
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="nameProject" >Title</label>
+              <div class="col-md-9">
+                <input type="text" id="nameProject" name="nameProject"  [(ngModel)]="projet.nameProject" class="form-control" placeholder="Title">
+
+                <span style="color:rgb(255,0,0);" *ngIf="  mode==1 && ! projet.nameProject" class="help-block text-left">Title is required</span>
+
+              </div>
+                <label class="col-md-3 col-form-label" for="description">Description</label>
+                <div class="col-md-9">
+                  <textarea id="description" name="description" rows="9" class="form-control" [(ngModel)]="projet.description"  placeholder="Description..."></textarea>
+                  <span style="color:rgb(255,0,0);" *ngIf="  mode==1 && ! projet.description" class="help-block text-left">Description is required</span>
+
+                </div>
+                <label class="col-md-3 col-form-label" for="departement">Department</label>
+              <div class="col-md-9">
+                <input type="text" id="departement" name="departement" [(ngModel)]="projet.departement" class="form-control" placeholder="department">
+                <span style="color:rgb(255,0,0);" *ngIf="  mode==1 && ! projet.departement" class="help-block text-left">Department is required</span>
+
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="type">Type</label>
+              <div class="col-md-9">
+                <select [(ngModel)]="projet.type"  id="type" name="type" class="form-control form-control-lg">
+                  <option value="Prevention">Prevention</option>
+                  <option value="Correction">Correction</option>
+                </select>
+                <span style="color:rgb(255,0,0);" *ngIf="  mode==1 && ! projet.type " class="help-block text-left">Type is required</span>
+
+              </div>
+            </div>
+
+
+
+
+
+
+          </form>
+        </div>
+        <div class="card-footer">
+          <button  (click)="save()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
