@@ -25,7 +25,7 @@ export class IntervalScaleService {
 
   getIntervalScale(id: number) {
 
-    return this.http.get('http://localhost:8080/intervalScales/' + id,{headers: this.headersT}).pipe();
+    return this.http.get('https://ilyesapprisk.herokuapp.com/intervalScales/' + id,{headers: this.headersT}).pipe();
 
   }
 
@@ -33,13 +33,13 @@ export class IntervalScaleService {
 
   getIntervalScales() {
 
-    return this.http.get('http://localhost:8080/intervalScales',{headers: this.headersT});
+    return this.http.get('https://ilyesapprisk.herokuapp.com/intervalScales',{headers: this.headersT});
   }
 
 
   saveIntervalScale(intervalScale: IntervalScale) {
 
-    return this.http.post('http://localhost:8080/IntervalScales', intervalScale,{headers: this.headersT});
+    return this.http.post('https://ilyesapprisk.herokuapp.com/IntervalScales', intervalScale,{headers: this.headersT});
   }
 
 
@@ -52,7 +52,7 @@ console.log(intervalScale)
     console.log("205611320565");
     console.log("205611320565");
 
-    return this.http.put('http://localhost:8080/intervalScales/'+idScale, intervalScale,{headers: this.headersT});
+    return this.http.put('https://ilyesapprisk.herokuapp.com/intervalScales/'+idScale, intervalScale,{headers: this.headersT});
 
   }
 
@@ -60,7 +60,7 @@ console.log(intervalScale)
 
   deleteIntervalScale(id: number) {
 
-    return this.http.delete('http://localhost:8080/intervalScales/' + id,{headers: this.headersT});
+    return this.http.delete('https://ilyesapprisk.herokuapp.com/intervalScales/' + id,{headers: this.headersT});
   }
 
 
