@@ -20,7 +20,7 @@ headers=new HttpHeaders({'Authorization': 'Bearer '+this.authService.jwt});
 }
 
   getUtilisateur(username:String){
-    return this.http.get("http://localhost:8080/users/"+username,{headers:this.headersT}).pipe();
+    return this.http.get("https://ilyesapprisk.herokuapp.com/users/"+username,{headers:this.headersT}).pipe();
 
   }
   getpath(user){
@@ -29,7 +29,7 @@ headers=new HttpHeaders({'Authorization': 'Bearer '+this.authService.jwt});
   }
   saveUtilisateur(utilisateur:User){
 
-    return this.http.post("http://localhost:8080/register", utilisateur,{headers:this.headersT});
+    return this.http.post("https://ilyesapprisk.herokuapp.com/register", utilisateur,{headers:this.headersT});
 
   }
 
@@ -46,7 +46,7 @@ headers=new HttpHeaders({'Authorization': 'Bearer '+this.authService.jwt});
 
 
   deleteUtilisateur(username:String){
-    return this.http.delete('http://localhost:8080/users/'+username,{headers:this.headersT});
+    return this.http.delete('https://ilyesapprisk.herokuapp.com/users/'+username,{headers:this.headersT});
 
   }
 
