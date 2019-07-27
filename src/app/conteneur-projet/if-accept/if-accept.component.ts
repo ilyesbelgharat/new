@@ -143,11 +143,7 @@ fichier;
   rapport() {
     console.log("init");
 this.projetService.rapport(this.idProjet,this.authService.username).subscribe(
-  data=>{
-    this.fichier=data;
-    console.log(this.fichier);
-   // this.getFile2(this.fichier);
-  }
+    console.log("c bnnnnnnnnnnnn");
 );
   }
 
