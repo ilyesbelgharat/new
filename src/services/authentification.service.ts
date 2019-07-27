@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class AuthentificationService {
-   host2: string = 'http://localhost:8080';
+   host2: string = 'https://ilyesapprisk.herokuapp.com';
    jwt: string;
    username:string;
    roles:Array<string>;
