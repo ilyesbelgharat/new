@@ -140,10 +140,10 @@ console.log(this.riskNonAcceptChart);
   }
 
 fichier;
+  
   rapport() {
     console.log("init");
 this.projetService.rapport(this.idProjet,this.authService.username).subscribe(
-    console.log("c bnnnnnnnnnnnn");
 );
   }
 
