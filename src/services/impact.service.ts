@@ -22,34 +22,34 @@ export class ImpactService {
   }
 
   getImpact(id: number) {
-    return this.http.get('http://localhost:8080/impacts/' + id, {headers: this.headersT}).pipe();
+    return this.http.get('https://ilyesapprisk.herokuapp.com/impacts/' + id, {headers: this.headersT}).pipe();
   }
 
   getImpacts() {
-    return this.http.get('http://localhost:8080/impacts', {headers: this.headersT});
+    return this.http.get('https://ilyesapprisk.herokuapp.com/impacts', {headers: this.headersT});
   }
 
   saveImpact(impact: Impact) {
     console.log(this.headersT);
-    return this.http.post('http://localhost:8080/impacts', impact, {headers: this.headersT});
+    return this.http.post('https://ilyesapprisk.herokuapp.com/impacts', impact, {headers: this.headersT});
 
   }
 
 
   deleteImpact(id: number) {
 
-    return this.http.delete('http://localhost:8080/impacts/' + id, {headers: this.headersT});
+    return this.http.delete('https://ilyesapprisk.herokuapp.com/impacts/' + id, {headers: this.headersT});
   }
 
 
   updateImpact(id:number, impact:Impact) {
     console.log(impact);
-    return this.http.put('http://localhost:8080/impacts/' + id, impact,{headers: this.headersT});
+    return this.http.put('https://ilyesapprisk.herokuapp.com/impacts/' + id, impact,{headers: this.headersT});
 
   }
 
   getImpactByCode(code:String){
-    return this.http.get('http://localhost:8080/impactCode/' + code, {headers: this.headersT}).pipe();
+    return this.http.get('https://ilyesapprisk.herokuapp.com/impactCode/' + code, {headers: this.headersT}).pipe();
   }
 
 
