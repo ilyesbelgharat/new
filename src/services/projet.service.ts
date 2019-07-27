@@ -78,8 +78,11 @@ export class ProjetService {
 
   addInterval(idProjet:number , intervalScale:IntervalScale){
     console.log(idProjet);
+            console.log('https://ilyesapprisk.herokuapp.com/'+idProjet+'/interval');
     console.log(intervalScale);
-    return this.http.put('https://ilyesapprisk.herokuapp.com/'+idProjet+'/interval' ,intervalScale,{headers: this.headersT}).pipe();
+        console.log('https://ilyesapprisk.herokuapp.com/'+idProjet+'/interval');
+
+    return this.http.put('https://ilyesapprisk.herokuapp.com/'+idProjet+'/interval',intervalScale,{headers: this.headersT}).pipe();
 }
 
 saveMinor(idProjet:number,min:number,max:number) {
