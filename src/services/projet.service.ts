@@ -82,7 +82,7 @@ export class ProjetService {
     console.log(intervalScale);
         console.log('https://ilyesapprisk.herokuapp.com/'+idProjet+'/interval');
 
-    return this.http.put('https://ilyesapprisk.herokuapp.com/'+idProjet+'/interval',intervalScale,{headers: this.headersT}).pipe();
+    return this.http.put('https://ilyesapprisk.herokuapp.com/projets/'+idProjet+'/interval',intervalScale,{headers: this.headersT}).pipe();
 }
 
 saveMinor(idProjet:number,min:number,max:number) {
