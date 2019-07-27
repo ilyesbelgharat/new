@@ -18,19 +18,19 @@ export class ImpactScaleService {
     this.headersT = headers;
   }
   getImpactScale(id: number) {
-    return this.http.get('http://localhost:8080/impactScales/' + id,{headers: this.headersT})
+    return this.http.get('https://ilyesapprisk.herokuapp.com/impactScales/' + id,{headers: this.headersT})
       .pipe( map(resp => resp.json()));
   }
   getImpactScales() {
-    return this.http.get('http://localhost:8080/impactScales',{headers: this.headersT})
+    return this.http.get('https://ilyesapprisk.herokuapp.com/impactScales',{headers: this.headersT})
       .pipe( map(resp => resp.json()));
   }
   saveImpactScale(impactScale: ImpactScale) {
-    return this.http.post('http://localhost:8080/impactScales', impactScale,{headers: this.headersT})
+    return this.http.post('https://ilyesapprisk.herokuapp.com/impactScales', impactScale,{headers: this.headersT})
       .pipe( map(resp => resp.json()));
   }
   deleteImpactScale(id: number) {
-    return this.http.delete('http://localhost:8080/impactScales/' + id,{headers: this.headersT})
+    return this.http.delete('https://ilyesapprisk.herokuapp.com/impactScales/' + id,{headers: this.headersT})
       .pipe( map(resp => resp.json()));
   }
 }
