@@ -17,25 +17,25 @@ export class SourceDangerService {
     this.headersT=headers;
   }
   getSourceDanger(id: number) {
-    return this.http.get('http://localhost:8080/sourceDangers/' + id,{headers:this.headersT}).pipe();
+    return this.http.get('https://ilyesapprisk.herokuapp.com/sourceDangers/' + id,{headers:this.headersT}).pipe();
   }
   getSourceDangers() {
-    return this.http.get('http://localhost:8080/sourceDangers',{headers:this.headersT});
+    return this.http.get('https://ilyesapprisk.herokuapp.com/sourceDangers',{headers:this.headersT});
   }
 
   saveSourceDanger(sourceDanger: SourceDanger) {
-    return this.http.post('http://localhost:8080/sourceDangers', sourceDanger,{headers:this.headersT});
+    return this.http.post('https://ilyesapprisk.herokuapp.com/sourceDangers', sourceDanger,{headers:this.headersT});
   }
 
   deleteSourceDanger(idFactor: number,idSource:number) {
     console.log(this.headersT);
-    return  this.http.delete('http://localhost:8080/factors/'+idFactor+'/source/'+idSource,{headers:this.headersT});
+    return  this.http.delete('https://ilyesapprisk.herokuapp.com/factors/'+idFactor+'/source/'+idSource,{headers:this.headersT});
 
   }
 
   updateSource(id:number, sourceDanger:SourceDanger){
 
-    return this.http.put('http://localhost:8080/source/' + id,sourceDanger,{headers: this.headersT});
+    return this.http.put('https://ilyesapprisk.herokuapp.com/source/' + id,sourceDanger,{headers: this.headersT});
 
   }
 
