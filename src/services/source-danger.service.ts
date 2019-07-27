@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {map} from 'rxjs/operators';
-import {SourceDanger} from '../Model/model.SourceDanger';
+import {SourceDanger} from '../model/model.sourceDanger';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthentificationService} from './authentification.service';
 @Injectable({
