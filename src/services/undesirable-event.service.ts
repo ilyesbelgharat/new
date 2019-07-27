@@ -21,27 +21,27 @@ export class UndesirableEventService {
   }
 
   getUndesirableEvent(id: number) {
-    return this.http.get('http://localhost:8080/undesirableEvents/' + id,{headers: this.headersT}).pipe();
+    return this.http.get('https://ilyesapprisk.herokuapp.com/undesirableEvents/' + id,{headers: this.headersT}).pipe();
   }
   getUndesirableEventCode(code: String) {
-    return this.http.get('http://localhost:8080/undesirableEventCode/' + code,{headers: this.headersT}).pipe();
+    return this.http.get('https://ilyesapprisk.herokuapp.com/undesirableEventCode/' + code,{headers: this.headersT}).pipe();
   }
   getUndesirableEvents() {
 
-    return this.http.get('http://localhost:8080/undesirableEvents',{headers: this.headersT});
+    return this.http.get('https://ilyesapprisk.herokuapp.com/undesirableEvents',{headers: this.headersT});
   }
 
   saveUndesirableEvent(undesirableEvent: UndesirableEvent) {
 
-    return this.http.post('http://localhost:8080/undesirableEvents', undesirableEvent,{headers: this.headersT});
+    return this.http.post('https://ilyesapprisk.herokuapp.com/undesirableEvents', undesirableEvent,{headers: this.headersT});
   }
   deleteUndesirableEvent(id: number) {
-    return this.http.delete('http://localhost:8080/undesirableEvents/' + id,{headers: this.headersT});
+    return this.http.delete('https://ilyesapprisk.herokuapp.com/undesirableEvents/' + id,{headers: this.headersT});
   }
 
   updateEvent(id:number, event:UndesirableEvent) {
     console.log(event);
-    return this.http.put('http://localhost:8080/undesirableEvents/' + id, event,{headers: this.headersT});
+    return this.http.put('https://ilyesapprisk.herokuapp.com/undesirableEvents/' + id, event,{headers: this.headersT});
   }
 
 }
