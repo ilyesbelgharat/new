@@ -72,16 +72,12 @@ export class ProjetService {
 
     console.log(this.headersT);
     console.log("000000000")
-    return this.http.put('http://https://ilyesapprisk.herokuapp.com/'+idProjet+'/interval/' + idInterval,null,{headers: this.headersT}).pipe();
+    return this.http.put('https://ilyesapprisk.herokuapp.com/projets/'+idProjet+'/interval/' + idInterval,null,{headers: this.headersT}).pipe();
 
   }
 
   addInterval(idProjet:number , intervalScale:IntervalScale){
-    console.log(idProjet);
-            console.log('https://ilyesapprisk.herokuapp.com/'+idProjet+'/interval');
-    console.log(intervalScale);
-        console.log('https://ilyesapprisk.herokuapp.com/'+idProjet+'/interval');
-
+  
     return this.http.put('https://ilyesapprisk.herokuapp.com/projets/'+idProjet+'/interval',intervalScale,{headers: this.headersT}).pipe();
 }
 
