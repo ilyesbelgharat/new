@@ -46,6 +46,8 @@ headers=new HttpHeaders({'Authorization': 'Bearer '+this.authService.jwt});
 
 
   deleteUtilisateur(username:String){
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    console.log(username);
     return this.http.delete('https://ilyesapprisk.herokuapp.com/users/'+username,{headers:this.headersT});
 
   }
