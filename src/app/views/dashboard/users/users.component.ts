@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
 
   //  console.log(this.authService.jwt);
 
-     this.userService.listUsers('http://localhost:8080/users')
+     this.userService.listUsers('https://ilyesapprisk.herokuapp.com/users')
      .subscribe(data=>{this.users=data},
          err=>{
          // console.log(err);
@@ -35,7 +35,7 @@ export class UsersComponent implements OnInit {
     console.log(c);
    this.userService.deleteUtilisateur(c)
      .subscribe(data=>{
-       this.userService.listUsers('http://localhost:8080/users')
+       this.userService.listUsers('https://ilyesapprisk.herokuapp.com/users')
          .subscribe(data=>{this.users=data},
            err=>{
              // console.log(err);
