@@ -32,7 +32,7 @@ export class EventProjectService {
 
 
   deleteImpacts(idEvent:number) {
-    return this.http.put('http://localhost:8080/eventProjet/'+idEvent,null, {headers: this.headersT}).subscribe();
+    return this.http.put('https://ilyesapprisk.herokuapp.com/eventProjet/'+idEvent,null, {headers: this.headersT}).subscribe();
 
   }
 
@@ -42,20 +42,20 @@ export class EventProjectService {
     console.log("events");
 
     console.log(events);
-    return this.http.put('http://localhost:8080/eventProjetimpact/'+idEvent,events, {headers: this.headersT}).subscribe();
+    return this.http.put('https://ilyesapprisk.herokuapp.com/eventProjetimpact/'+idEvent,events, {headers: this.headersT}).subscribe();
 
 
   }
 
 
     saveOne(idEvent:number,idProjet:number){
-   // console.log('http://localhost:8080/eventProjet/'+idProjet+'/'+idEvent);
+   // console.log('https://ilyesapprisk.herokuapp.com/eventProjet/'+idProjet+'/'+idEvent);
       return this.http.post('http://localhost:8080/eventProjet/'+idProjet+'/'+idEvent,null, {headers: this.headersT});
 
     }
 
   saveOne1(idsEvent:number[],idProjet:number){
-    // console.log('http://localhost:8080/eventProjet/'+idProjet+'/'+idEvent);
+    // console.log('https://ilyesapprisk.herokuapp.com/eventProjet/'+idProjet+'/'+idEvent);
     return this.http.post('http://localhost:8080/eventProjetSave/'+idProjet,idsEvent, {headers: this.headersT});
 
   }
@@ -66,7 +66,7 @@ export class EventProjectService {
     saveOneImpact(idEvent:number,idImpact:number){
 
 
-      return this.http.put('http://localhost:8080/eventProjet/'+idEvent+'/'+idImpact,null, {headers: this.headersT}).pipe().subscribe();
+      return this.http.put('https://ilyesapprisk.herokuapp.com/eventProjet/'+idEvent+'/'+idImpact,null, {headers: this.headersT}).pipe().subscribe();
 
 
     }
@@ -75,12 +75,12 @@ export class EventProjectService {
 
 
   resume(tab:number[],idEvent) {
-    return this.http.post('http://localhost:8080/factorProjet/'+idEvent,tab,{headers: this.headersT});
+    return this.http.post('https://ilyesapprisk.herokuapp.com/factorProjet/'+idEvent,tab,{headers: this.headersT});
 
   }
 
   resume1(tab:number[][],idEvent) {
-    return this.http.post('http://localhost:8080/factorProjet1/'+idEvent,tab,{headers: this.headersT});
+    return this.http.post('https://ilyesapprisk.herokuapp.com/factorProjet1/'+idEvent,tab,{headers: this.headersT});
 
   }
 
@@ -88,29 +88,29 @@ export class EventProjectService {
 
     getListEventProjet(idProjet:number) {
 
-       return this.http.get('http://localhost:8080/undesirableEventsFiltree/'+idProjet, {headers: this.headersT});
+       return this.http.get('https://ilyesapprisk.herokuapp.com/undesirableEventsFiltree/'+idProjet, {headers: this.headersT});
     }
 
 
 
     deleteFactorsProjetFromEventProjet(idEvent:number) {
 
-    return this.http.put('http://localhost:8080/factorProjet/'+idEvent,null,{headers: this.headersT});
+    return this.http.put('https://ilyesapprisk.herokuapp.com/factorProjet/'+idEvent,null,{headers: this.headersT});
     }
 
     setCompArray(idEvent:number,compArray:number[]){
-    return this.http.put('http://localhost:8080/eventProjetCompArray/'+idEvent,compArray,{headers: this.headersT});
+    return this.http.put('https://ilyesapprisk.herokuapp.com/eventProjetCompArray/'+idEvent,compArray,{headers: this.headersT});
 
   }
 
   getCompArray(idEvent:number){
-    return this.http.get('http://localhost:8080/eventProjetCompArray/'+idEvent,{headers: this.headersT}).pipe();
+    return this.http.get('https://ilyesapprisk.herokuapp.com/eventProjetCompArray/'+idEvent,{headers: this.headersT}).pipe();
 
   }
 
   methodeAHP(idEvent:number){
 
-    return this.http.put('http://localhost:8080/eventProjetAHP/'+idEvent,null,{headers: this.headersT}).pipe();
+    return this.http.put('https://ilyesapprisk.herokuapp.com/eventProjetAHP/'+idEvent,null,{headers: this.headersT}).pipe();
 
   }
 }
