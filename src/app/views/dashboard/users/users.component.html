@@ -37,11 +37,10 @@
   </td>
   <td>
     <div class="col-6 col-sm-4 col-md mb-3 mb-xl-0 text-center" >
-      <button  *ngIf="u.appRoles[0].roleName!='ADMIN'" type="button" class="btn btn-sm btn-pill btn-danger"
+      <button  type="button" class="btn btn-sm btn-pill btn-danger"
               
              mwlConfirmationPopover
               placement="left"      (confirm)="deleteUser(u.username)"
-
       >DELETE</button>
      
       <h5 *ngIf="u.appRoles[0].roleName=='ADMIN'">ADMIN</h5>
