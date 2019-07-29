@@ -16,6 +16,7 @@
       <th><i  class="glyphicon glyphicon-trash"
              mwlConfirmationPopover
                     (confirm)="deleteFile(f.id)"
+             (cancel)="cancelClicked = true"
 
       ></i></th>
     <td>{{f.fileName}}</td>
