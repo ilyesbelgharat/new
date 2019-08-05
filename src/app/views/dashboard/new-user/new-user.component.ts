@@ -4,6 +4,7 @@ import {AuthentificationService} from '../../../../services/authentification.ser
 import {UserService} from '../../../../services/user.service';
 import {User} from '../../../../model/model.user';
 import {map} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-user',
@@ -15,7 +16,7 @@ export class NewUserComponent implements OnInit {
   headersT;
   mode=0;
   modeUsername=0;
-  constructor( private http:HttpClient, private userService:UserService,private  authService: AuthentificationService) {
+  constructor( private http:HttpClient, private userService:UserService,private  authService: AuthentificationService,private router: Router) {
 
     this.authService.loadToken();
     this.authService.parseJWT();
@@ -40,8 +41,8 @@ foo1;
       else{
 
         this.save3();
-      }
 
+      }
 
     })
 
@@ -52,7 +53,6 @@ foo1;
     let oData = new FormData(document.forms.namedItem('fileinfo'));
     let foo: File;
     console.log(oData);
-
     let file = oData.get('file');
 
     foo = <File>file;
@@ -64,19 +64,21 @@ foo1;
     ) {
 
 
-      this.http.post("https://ilyesapprisk.herokuapp.com/photos",oData,{headers:this.headersT})
+      this.http.post("http://localhost:8080/photos",oData,{headers:this.headersT})
         .subscribe(data=>{
           console.log(data);
           console.log("hhhhhhhhhhhh");
           this.user.photo=data;
           this.save1();
-        },err=>{
+
+          },err=>{
           console.log(err);
         }
         )
 
 
     }
+
   }
 
     save1() {
@@ -94,7 +96,12 @@ foo1;
 
           if(data)
           {
-            alert("User Ajoutee")
+             if(confirm("User Ajoutee")){
+               this.user=new User();
+               this.mode=0;
+               this.modeUsername=0;
+               this.modeFile=0;
+             }
 
           }
           else {
