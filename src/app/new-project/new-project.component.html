@@ -29,14 +29,25 @@
   </ul>
 </app-header>
 
+<cui-breadcrumb [routerLink]="['/choix']">
+  <!-- Breadcrumb Menu-->
+  <li class="breadcrumb-menu d-md-down-none">
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+      <a class="btn" [routerLink]="['/choix']"><i class="icon-graph"></i> &nbsp;Menu</a>
+      <!-- <a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Settings</a>-->
+    </div>
+  </li>
+</cui-breadcrumb>
 
-<div class="dimension text-center auth auth-bg-1 theme-one">
+
+<div class="dimension text-center auth auth-bg-1 theme-one" >
   <main class="main">
+
 
     <div class="animated fadeIn">
       <div class="card">
         <div class="card-header">
-          <strong>New Projet</strong>
+          <strong>New Project</strong>
         </div>
         <div class="card-body">
           <form action="" method="post"   enctype="multipart/form-data" class="form-horizontal">
@@ -55,9 +66,9 @@
                   <span style="color:rgb(255,0,0);" *ngIf="  mode==1 && ! projet.description" class="help-block text-left">Description is required</span>
 
                 </div>
-                <label class="col-md-3 col-form-label" for="departement">Department</label>
+                <label class="col-md-3 col-form-label" for="departement">Department/Service</label>
               <div class="col-md-9">
-                <input type="text" id="departement" name="departement" [(ngModel)]="projet.departement" class="form-control" placeholder="department">
+                <input type="text" id="departement" name="departement" [(ngModel)]="projet.departement" class="form-control" placeholder="Department/Service">
                 <span style="color:rgb(255,0,0);" *ngIf="  mode==1 && ! projet.departement" class="help-block text-left">Department is required</span>
 
               </div>
