@@ -64,7 +64,7 @@ foo1;
     ) {
 
 
-      this.http.post("http://localhost:8080/photos",oData,{headers:this.headersT})
+      this.http.post("https://ilyesapprisk.herokuapp.com/image",oData,{headers:this.headersT})
         .subscribe(data=>{
           console.log(data);
           console.log("hhhhhhhhhhhh");
