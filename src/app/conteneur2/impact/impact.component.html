@@ -8,12 +8,12 @@
 
   <form #f="ngForm"  >
       <div class="form-group">
-        <label class="control-label" > <h5>Code</h5></label>
+        <label class="control-label" class="control-label blanc" > Code</label>
         <input type="text" name="code" [(ngModel)]="impact.code" class="form-control">
         <span style="color:rgb(255,0,0);" *ngIf=" modeAjout==1 && ! impact.code" class="help-block">Code is required</span>
         <span style="color:rgb(255,0,0);" *ngIf=" modeAjout==1 &&  impact.code && impact.description && test1==1" class="help-block">Code exist</span>
 
-        <label class="control-label" > <h5>description</h5></label>
+        <label class="control-label" class="control-label blanc"  > Description </label>
         <input type="text" name="description" [(ngModel)]="impact.description" class="form-control">
         <span style="color:rgb(255,0,0);" *ngIf=" modeAjout==1 && ! impact.description" class="help-block">Description is required</span>
 
