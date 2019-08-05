@@ -49,10 +49,10 @@
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Identification</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li>
-            <a routerLink="/projets/{{idProjet}}/events/{{idProjet}}">Identification of risks</a>
+            <a routerLink="/projets/{{idProjet}}/events/{{idProjet}}">Identification of events</a>
           </li>
           <li>
-            <a routerLink="/projets/{{idProjet}}/eventsProjet/{{idProjet}}">Identification of causal Links</a>
+            <a routerLink="/projets/{{idProjet}}/eventsProjet/{{idProjet}}">Identification of causal links</a>
           </li>
           <li>
             <a routerLink="/projets/{{idProjet}}/eventsDetails/{{idProjet}}">Details Risks</a>
@@ -85,14 +85,14 @@
         <a routerLink="/projets/{{idProjet}}/concentration/{{idProjet}}">Concentration & Level of Risk</a>
       </li>
       <li >
-        <a routerLink="/projets/{{idProjet}}/Result/{{idProjet}}">Acceptabilité</a>
+        <a routerLink="/projets/{{idProjet}}/Result/{{idProjet}}">Acceptability</a>
       </li>
 
 
 
 
       <li>
-        <a routerLink="/projets/{{idProjet}}/Historique/{{idProjet}}">Historic</a>
+        <a routerLink="/projets/{{idProjet}}/Historique/{{idProjet}}">Historic reports</a>
       </li>
     </ul>
 
@@ -107,7 +107,7 @@
 
     <div class="card-header">
       <strong><h1 class="text-center">Title : {{proj.nameProject}}</h1> </strong>
-      <strong class="-align-right"><h6 class="-align-right text-center" *ngIf="proj.userCreation">created by :{{proj.userCreation.username}}</h6> </strong>
+      <strong class="-align-right"><h6 class="-align-right text-center" *ngIf="proj.userCreation">Created by :{{proj.userCreation.username}}</h6> </strong>
 
     </div>
     <router-outlet></router-outlet>
